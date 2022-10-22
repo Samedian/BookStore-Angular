@@ -1,0 +1,6 @@
+export interface DoctorEductaion{
+    doctorId : number;
+    userId : number;
+    specializationId : number;
+    highestEducation : string;
+}
