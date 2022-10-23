@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="signOfType" (ngSubmit)="OnSubmit()">          
+            <div class="form-group">
+              <label for="bookName">Book Name</label>
+              <input type="text" id="bookName" class="form-control" [formControlName]="'bookName'">
+              <span
+                *ngIf="!signOfType.get('bookName').valid && signOfType.get('bookName').touched"
+                class="help-block">
+                <span *ngIf="signOfType.get('bookName').hasError('nameIsForbidden')">This name is invalid!</span>
+                <span *ngIf="signOfType.get('bookName').hasError('required')">This field is required!</span>
+              </span>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" class="form-control" [formControlName]="'author'">
+                <span
+                  *ngIf="!signOfType.get('author').valid && signOfType.get('author').touched"
+                  class="help-block">
+                  <span *ngIf="signOfType.get('author').hasError('nameIsForbidden')">This name is invalid!</span>
+                  <span *ngIf="signOfType.get('author').hasError('required')">This field is required!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" class="form-control" [formControlName]="'location'">
+                <span
+                  *ngIf="!signOfType.get('location').valid && signOfType.get('location').touched"
+                  class="help-block">
+                  <span *ngIf="signOfType.get('location').hasError('nameIsForbidden')">This name is invalid!</span>
+                  <span *ngIf="signOfType.get('location').hasError('required')">This field is required!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" id="category" class="form-control" [formControlName]="'category'">
+                <span
+                  *ngIf="!signOfType.get('category').valid && signOfType.get('category').touched"
+                  class="help-block">
+                  <span *ngIf="signOfType.get('category').hasError('nameIsForbidden')">This name is invalid!</span>
+                  <span *ngIf="signOfType.get('category').hasError('required')">This field is required!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="pages">Pages</label>
+                <input type="text" id="pages" class="form-control" [formControlName]="'pages'">
+                <span
+                  *ngIf="!signOfType.get('pages').valid && signOfType.get('pages').touched"
+                  class="help-block">
+                  <span *ngIf="signOfType.get('pages').hasError('nameIsForbidden')">This name is invalid!</span>
+                  <span *ngIf="signOfType.get('pages').hasError('required')">This field is required!</span>
+                </span>
+            </div>
+          
+          <button class="btn btn-primary" type="submit" [disabled]="!signOfType.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>

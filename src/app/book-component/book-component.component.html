@@ -1,0 +1,25 @@
+<div>
+    <button (click)="AddBook()">Add Book</button>
+    <table class="table table-bordered">
+        <tr>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>No. of Pages</th>
+        </tr>
+        <div *ngFor="let data of bookInfo">
+        <tr>
+            <td>{{data.bookName}}</td>
+            <td>{{data.author}}</td>
+            <td>{{data.location}}</td>
+            <td>{{data.category}}</td>
+            <td>{{data.pages}}</td>            
+            <button [routerLink]="[data.bookId]">Edit</button>
+            <button (click)="onDelete(data.bookId)">Delete</button>            
+        </tr>
+       </div>
+    </table>    
+</div>
+ <!--It will set which component needs to be displayed-->
+ <router-outlet></router-outlet>
