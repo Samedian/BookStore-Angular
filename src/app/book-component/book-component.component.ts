@@ -21,11 +21,22 @@ export class BookComponentComponent implements OnInit {
   }
 
   onDelete(id : number){
+    console.log(id);
     this.bookService.deleteBook(id).subscribe();
+    this.bookService.getAllBookList().subscribe(
+      data => {
+        this.bookInfo = data
+      }
+    );
   }
 
   AddBook(){   
     this.router.navigate([0] , { relativeTo: this.route });
+    this.bookService.getAllBookList().subscribe(
+      data => {
+        this.bookInfo = data
+      }
+    );
   }
 
 }

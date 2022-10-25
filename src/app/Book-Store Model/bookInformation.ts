@@ -4,5 +4,5 @@ export interface bookInformation{
     author : string;
     location : string;
     category : string;
-    pages : string;    
+    pages : number;    
 }

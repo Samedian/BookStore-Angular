@@ -20,8 +20,8 @@ export class AddbookComponent implements OnInit {
       'bookName' : new FormControl(null, [Validators.required]),
       'author': new FormControl(null, [Validators.required]),        
       'location' : new FormControl(null, [Validators.required]),
-      'category' : new FormControl(null),
-      'pages' : new FormControl(null)
+      'category' : new FormControl(null,[Validators.required]),
+      'pages' : new FormControl(null,[Validators.required])
     })
     this.activatedRoute.params.subscribe((params : Params) => {
     this.id = +this.activatedRoute.snapshot.params['id'];
@@ -35,11 +35,11 @@ export class AddbookComponent implements OnInit {
   OnSubmit(){
     const bookStores : bookInformation = {
       bookId : 0,
-      bookName : this.signOfType.get('bookName').toString(),
-      author : this.signOfType.get('author').toString(),
-      location : this.signOfType.get('location').toString(),
-      category : this.signOfType.get('category').toString(),
-      pages : this.signOfType.get('pages').toString()
+      bookName : this.signOfType.get('bookName').value.toString(),
+      author : this.signOfType.get('author').value.toString(),
+      location : this.signOfType.get('location').value.toString(),
+      category : this.signOfType.get('category').value.toString(),
+      pages : +this.signOfType.get('pages').value.toString()
     };    
     this.http.postBook(bookStores).subscribe(s => console.log(s),e => console.log(e));
   }
